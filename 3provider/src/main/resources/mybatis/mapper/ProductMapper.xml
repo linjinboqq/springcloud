@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定定mapper接口-->
+<mapper namespace="com.mengxuegu.springcloud.mapper.ProductMapper">
+<!--接口里对应的方法-->
+    <!--这里product 是因为再mybatis中指定了entity-->
+    <select id="findById" resultType="Product" parameterType="Long">
+   select pid, product_name, db_source from product where pid=#{pid};
+  </select>
+
+    <select id="findAll" resultType="Product">
+   select pid, product_name, db_source from product;
+  </select>
+<!--id是自增的不用传入 还要传一个数据库的名 -->
+    <insert id="addProduct" parameterType="Product">
+   INSERT INTO product(product_name, db_source) VALUES(#{productName}, DATABASE());
+  </insert>
+
+</mapper>

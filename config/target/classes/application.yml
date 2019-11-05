@@ -1,0 +1,32 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: microservice-config
+  cloud:
+    config:
+      server:
+        git: # 远程库的git地址
+          uri: https://github.com/linjinboqq/microservice-cloud-config.git
+
+
+
+#spring:
+#  profiles:
+#    active: dev # 激活开发环境配置
+#---
+#server:
+#  port: 4001 #端口号
+#spring:
+#  profiles: dev # 开发环境
+#    application:
+#      name: microservice-config-dev
+#---
+#server:
+#  port: 4002 #端口号
+#  spring:
+#    profiles: prod # 生产环境
+#    application:
+#      name: microservice-config-prod
+
